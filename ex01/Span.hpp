@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:36:18 by araqioui          #+#    #+#             */
-/*   Updated: 2023/10/03 17:40:59 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:03:17 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ class Span {
 		void	addNumber(int value);
 		int		shortestSpan(void);
 		int		longestSpan(void);
+		void	randomFill(void);
 		void	print(void);
 };

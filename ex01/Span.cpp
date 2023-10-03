@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:15:35 by araqioui          #+#    #+#             */
-/*   Updated: 2023/10/03 17:42:21 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:11:25 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	Span::shortestSpan(void)
 	size_t	size = vec.size();
 	size_t	i = 0;
 	size_t	j;
-	int		res = 0;
+	int		res = INT_MAX;
 
 	if (vec.size() < 2)
 		throw std::string("Error: Not enough elements");
@@ -92,6 +92,18 @@ int	Span::longestSpan(void)
 		i++;
 	}
 	return (res);
+}
+
+void	Span::randomFill(void)
+{
+	unsigned int	i = 0;
+
+	std::srand(static_cast<int>(std::time(NULL)));
+	while (i < length)
+	{
+		addNumber(std::rand() % 1000 + 1);
+		i++;
+	}
 }
 
 void	Span::print(void)
