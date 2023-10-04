@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:59:48 by araqioui          #+#    #+#             */
-/*   Updated: 2023/10/03 18:06:31 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/10/04 10:33:37 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main(void)
 		sp.addNumber(9);
 		sp.addNumber(11);
 
-		sp.print();
-		std::cout << sp.shortestSpan() << " " << sp.longestSpan() << std::endl;
+		std::cout << "Short: " << sp.shortestSpan() << std::endl;
+		std::cout << "Long: " << sp.longestSpan() << std::endl;
 	}
 	catch (const std::string &str)
 	{

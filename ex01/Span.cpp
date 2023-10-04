@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:15:35 by araqioui          #+#    #+#             */
-/*   Updated: 2023/10/03 18:11:25 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/10/04 10:31:56 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ Span::Span(void) : length(0)
 
 Span::~Span(void)
 {
-	vec.clear();
-	vec.shrink_to_fit();
 }
 
 Span::Span(const Span &obj)
@@ -97,11 +95,15 @@ int	Span::longestSpan(void)
 void	Span::randomFill(void)
 {
 	unsigned int	i = 0;
+	unsigned int	rest = length - vec.size();
 
-	std::srand(static_cast<int>(std::time(NULL)));
-	while (i < length)
+	std::cout << "Rest: " << rest << std::endl;
+	if (!length || !rest)
+		throw std::string("Error: Can't add more elements");
+	std::srand((std::time(NULL)));
+	while (i < rest)
 	{
-		addNumber(std::rand() % 1000 + 1);
+		vec.insert(vec.begin(), rand() % 1000 + 1);
 		i++;
 	}
 }
@@ -110,6 +112,7 @@ void	Span::print(void)
 {
 	std::vector<int>::iterator	it = vec.begin();
 
+	std::cout << "Values: ";
 	while (it != vec.end())
 		std::cout << *(it++) << " ";
 	std::cout << std::endl;
