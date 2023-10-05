@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:15:35 by araqioui          #+#    #+#             */
-/*   Updated: 2023/10/05 11:34:33 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:34:10 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	Span::shortestSpan(void)
 	{
 		j = i;
 		while (++j < size)
-			res = std::min(abs(vec[i] - vec[j]), res);
+			res = (abs(vec[i] - vec[j]) < res) ? abs(vec[i] - vec[j]) : res;
 		i++;
 	}
 	return (res);
@@ -86,7 +86,7 @@ int	Span::longestSpan(void)
 	{
 		j = i;
 		while (++j < size)
-			res = std::max(abs(vec[i] - vec[j]), res);
+			res = (abs(vec[i] - vec[j]) > res) ? abs(vec[i] - vec[j]) : res;
 		i++;
 	}
 	return (res);
