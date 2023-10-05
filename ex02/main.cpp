@@ -5,30 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 17:15:16 by araqioui          #+#    #+#             */
-/*   Updated: 2023/10/05 11:26:49 by araqioui         ###   ########.fr       */
+/*   Created: 2023/10/04 10:55:19 by araqioui          #+#    #+#             */
+/*   Updated: 2023/10/05 11:24:24 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "MutantStack.hpp"
 
-int	main()
+int	main(void)
 {
-	std::array<int, 5>	arr = {12, 13, 2, 12, 10};
+	MutantStack<int> mstack;
 
-	std::vector<int>	vec;
-	vec.push_back(12);
-	vec.push_back(13);
-	vec.push_back(2);
-	vec.push_back(10);
+	mstack.push(5);
+	mstack.push(17);
 
-	std::list<int>	lst;
-	lst.push_back(12);
-	lst.push_back(3);
+	std::cout << "Top: " << mstack.top() << std::endl;
 
-	if (easyfind(lst, 13))
-		std::cout << "Number founded" << std::endl;
-	else
-		std::cout << "Number Not founded" << std::endl;
-	(void)arr;
+	mstack.pop();
+
+	std::cout << "Size: " << mstack.size() << std::endl;
+
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	mstack.push(0);
+
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+
+	++it;
+	--it;
+	while (it != ite)
+		std::cout << *it++ << " ";
+	std::cout << std::endl;
+	return (0);
 }

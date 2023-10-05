@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:15:35 by araqioui          #+#    #+#             */
-/*   Updated: 2023/10/04 10:31:56 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/10/05 11:34:33 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ void	Span::randomFill(void)
 	unsigned int	i = 0;
 	unsigned int	rest = length - vec.size();
 
-	std::cout << "Rest: " << rest << std::endl;
 	if (!length || !rest)
 		throw std::string("Error: Can't add more elements");
 	std::srand((std::time(NULL)));
