@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 10:55:29 by araqioui          #+#    #+#             */
-/*   Updated: 2023/10/05 11:11:33 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/10/05 14:35:10 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class MutantStack : public std::stack<T, std::vector<T> > {
 
 	public:
 		// Iterator attribute
+		// TODO: Maybe add reverse iterators
 		typedef typename std::vector<T>::iterator		iterator;
 		typedef typename std::vector<T>::const_iterator	const_iterator;
 

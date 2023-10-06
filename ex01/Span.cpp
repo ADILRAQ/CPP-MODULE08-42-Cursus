@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:15:35 by araqioui          #+#    #+#             */
-/*   Updated: 2023/10/05 12:34:10 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/10/06 10:48:57 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ Span	&Span::operator = (const Span &source)
 
 Span::Span(unsigned int len) : length(len)
 {
+	if (static_cast<int>(length) <= 0)
+		throw std::string("Error: Enter a valid number");
 }
 
 // Implemented Methods
@@ -92,19 +94,15 @@ int	Span::longestSpan(void)
 	return (res);
 }
 
-void	Span::randomFill(void)
+void	Span::fastFill(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	unsigned int	i = 0;
 	unsigned int	rest = length - vec.size();
+	unsigned int	iteratorLength = end - begin;
 
-	if (!length || !rest)
+	if (!rest || static_cast<int>(iteratorLength) <= 0 || iteratorLength > rest)
 		throw std::string("Error: Can't add more elements");
-	std::srand((std::time(NULL)));
-	while (i < rest)
-	{
-		vec.insert(vec.begin(), rand() % 1000 + 1);
-		i++;
-	}
+	while (begin != end)
+		vec.push_back(*begin++);
 }
 
 void	Span::print(void)
