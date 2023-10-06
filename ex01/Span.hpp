@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:36:18 by araqioui          #+#    #+#             */
-/*   Updated: 2023/10/06 10:48:51 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/10/06 15:02:52 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <list>
+#include <deque>
 
 class Span {
 	private:
@@ -36,6 +36,21 @@ class Span {
 		void	addNumber(int value);
 		int		shortestSpan(void);
 		int		longestSpan(void);
-		void	fastFill(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		void	print(void);
+		template <typename Iterator> void	fastFill(Iterator begin, Iterator end)
+		{
+			Iterator		keep = begin;
+			unsigned int	rest = length - vec.size();
+			int				iteratorLength = 0;
+
+			while (keep != end)
+			{
+				iteratorLength++;
+				keep++;
+			}
+			if (!rest || iteratorLength <= 0 || static_cast<unsigned int>(iteratorLength) > rest)
+				throw std::string("Error: Can't add more elements");
+			while (begin != end)
+				vec.push_back(*begin++);
+		}
 };

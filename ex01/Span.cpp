@@ -6,7 +6,7 @@
 /*   By: araqioui <araqioui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:15:35 by araqioui          #+#    #+#             */
-/*   Updated: 2023/10/06 10:48:57 by araqioui         ###   ########.fr       */
+/*   Updated: 2023/10/06 14:45:45 by araqioui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,17 +92,6 @@ int	Span::longestSpan(void)
 		i++;
 	}
 	return (res);
-}
-
-void	Span::fastFill(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-{
-	unsigned int	rest = length - vec.size();
-	unsigned int	iteratorLength = end - begin;
-
-	if (!rest || static_cast<int>(iteratorLength) <= 0 || iteratorLength > rest)
-		throw std::string("Error: Can't add more elements");
-	while (begin != end)
-		vec.push_back(*begin++);
 }
 
 void	Span::print(void)
